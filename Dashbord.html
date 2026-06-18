@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>finance tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="profile-box">
+            <div class="avatar-cont" onclick="document.getElementById('pInput').click()"><div id="pPic"></div></div>
+            <input type="file" id="pInput" hidden onchange="upImg(this)">
+            <h4 id="pName">User Name</h4>
+            <small onclick="editN()" style="color:var(--accent); cursor:pointer; font-weight:700">EDIT PROFILE ⚙️</small>
+        </div>
+
+        <div class="menu-item active" onclick="switchTab('dash', this)">📊 Dashboard</div>
+        <div class="menu-item" onclick="switchTab('inc', this)">💰 Incomes</div>
+        <div class="menu-item" onclick="switchTab('exp', this)">💸 Expenses</div>
+        <div class="menu-item" onclick="switchTab('trans', this)">📜 Transactions</div>
+        <div class="menu-item" onclick="switchTab('report', this)">📈 Reports</div>
+        
+        <div class="theme-toggle" onclick="toggleTheme()" id="tBtn">🌙 Dark Mode</div>
+    </aside>
+
+    <main class="main-content">
+        <div class="stat-grid">
+<div class="stat-card"><h5>Net Balance</h5><div class="amount" id="total-bal">₹0</div></div>
+<div class="stat-card"><h5>Incomes</h5><div class="amount" id="total-inc" style="color:var(--income)">₹0</div></div>
+<div class="stat-card"><h5>Expenses</h5><div class="amount" id="total-exp" style="color:var(--expense)">₹0</div></div>
+        </div>
+
+        <div id="tab-dash" class="tab-content active">
+            <div class="big-card" style="height: 400px;"><canvas id="mainChart"></canvas></div>
+        </div>
+
+        <div id="tab-inc" class="tab-content">
+            <div class="view-split">
+                <div class="big-card">
+                    <h2>Add Income</h2>
+                    <input type="text" id="in-t" placeholder="Income Source">
+                    <input type="number" id="in-a" placeholder="Amount">
+                    <input type="date" id="in-d">
+                    <button class="btn-add" style="background:var(--income)" onclick="handleSave('inc')">Save Income</button>
+                </div>
+                <div id="side-inc-list"></div>
+            </div>
+        </div>
+
+        <div id="tab-exp" class="tab-content">
+            <div class="view-split">
+                <div class="big-card">
+                    <h2>Add Expense</h2>
+                    <input type="text" id="ex-t" placeholder="Expense Purpose">
+                    <input type="number" id="ex-a" placeholder="Amount">
+                    <input type="date" id="ex-d">
+                    <button class="btn-add" style="background:var(--expense)" onclick="handleSave('exp')">Save Expense</button>
+                </div>
+                <div id="side-exp-list"></div>
+            </div>
+        </div>
+
+        <div id="tab-trans" class="tab-content">
+            <div class="big-card">
+                <h3>Full History</h3>
+                <table>
+                    <thead><tr><th>DATE</th><th>DESC</th><th>TYPE</th><th>AMOUNT</th><th>ACTION</th></tr></thead>
+                    <tbody id="full-table-body"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="tab-report" class="tab-content">
+            <div class="view-split">
+                <div class="big-card"><h3>Distribution</h3><div style="height:300px;"><canvas id="pieChart"></canvas></div></div>
+                <div class="big-card" style="text-align:center">
+                    <h3>Efficiency</h3>
+                    <h1 id="eff-val" style="font-size:4rem; color:var(--accent); margin:20px 0">0%</h1>
+                    <p id="eff-msg">No data available.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
