@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FinFlow | Secure Access</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="login.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<button class="theme-switch" id="themeSwitcher">
+<svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+</svg>
+</button>
+
+<div class="auth-container">
+
+<div class="auth-visual">
+<canvas id="bgChart" class="visual-chart"></canvas>
+<div class="visual-content">
+<h2 id="visualTitle">Smart <br><span style="color:var(--primary)">Budgeting.</span></h2>
+<p>Simplify your finances with our enterprise-grade tracking tools.</p>
+</div>
+</div>
+
+<div class="auth-form-box">
+
+<div id="loginForm">
+<div class="form-header">
+<h3>Login</h3>
+<p>Access your secure dashboard.</p>
+</div>
+
+<form id="loginSubmit">
+<div class="input-group">
+<input type="email" id="l-email" placeholder=" " required>
+<label>Email Address</label>
+</div>
+<div class="input-group">
+<input type="password" id="l-pass" placeholder=" " required>
+<label>Password</label>
+</div>
+<button type="submit" class="btn-auth">Sign In</button>
+</form>
+
+<p class="toggle-text">
+New here?
+<button class="toggle-btn" id="showSignup">Create Account</button>
+</p>
+</div>
+
+<div id="signupForm" class="hidden">
+<div class="form-header">
+<h3>Join FinFlow</h3>
+<p>Start tracking for free today.</p>
+</div>
+
+<form id="signupSubmit">
+<div class="input-group">
+<input type="text" id="s-name" placeholder=" " required>
+<label>Full Name</label>
+</div>
+<div class="input-group">
+<input type="email" id="s-email" placeholder=" " required>
+<label>Email Address</label>
+</div>
+<div class="input-group">
+<input type="password" id="s-pass" placeholder=" " required>
+<label>Password</label>
+</div>
+<button type="submit" class="btn-auth">Get Started</button>
+</form>
+
+<p class="toggle-text">
+Already a member?
+<button class="toggle-btn" id="showLogin">Sign In</button>
+</p>
+</div>
+
+</div>
+</div>
+
+<script src="login.js"></script>
+</body>
+</html>
