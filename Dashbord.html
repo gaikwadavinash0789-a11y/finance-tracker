@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>finance tracker</title>
+    <title>Finance Tracker</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="style.css">
@@ -12,7 +12,9 @@
 
     <aside class="sidebar">
         <div class="profile-box">
-            <div class="avatar-cont" onclick="document.getElementById('pInput').click()"><div id="pPic"></div></div>
+            <div class="avatar-cont" onclick="document.getElementById('pInput').click()">
+                <div id="pPic"></div>
+            </div>
             <input type="file" id="pInput" hidden onchange="upImg(this)">
             <h4 id="pName">User Name</h4>
             <small onclick="editN()" style="color:var(--accent); cursor:pointer; font-weight:700">EDIT PROFILE ⚙️</small>
@@ -25,13 +27,14 @@
         <div class="menu-item" onclick="switchTab('report', this)">📈 Reports</div>
         
         <div class="theme-toggle" onclick="toggleTheme()" id="tBtn">🌙 Dark Mode</div>
+        <div class="theme-toggle" onclick="logout()" style="margin-top:10px; background:var(--expense); color:white;">🚪 Logout</div>
     </aside>
 
     <main class="main-content">
         <div class="stat-grid">
-<div class="stat-card"><h5>Net Balance</h5><div class="amount" id="total-bal">₹0</div></div>
-<div class="stat-card"><h5>Incomes</h5><div class="amount" id="total-inc" style="color:var(--income)">₹0</div></div>
-<div class="stat-card"><h5>Expenses</h5><div class="amount" id="total-exp" style="color:var(--expense)">₹0</div></div>
+            <div class="stat-card"><h5>Net Balance</h5><div class="amount" id="total-bal">₹0</div></div>
+            <div class="stat-card"><h5>Incomes</h5><div class="amount" id="total-inc" style="color:var(--income)">₹0</div></div>
+            <div class="stat-card"><h5>Expenses</h5><div class="amount" id="total-exp" style="color:var(--expense)">₹0</div></div>
         </div>
 
         <div id="tab-dash" class="tab-content active">
